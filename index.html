@@ -21,31 +21,31 @@
 </head>
 
 <body>
+    <nav id="navbar" class="navbar navbar-expand-md bg-dark navbar-dark text-white fixed-top">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a id="user" class="nav-link text-white">音效種類</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="actions(0)">登場</a>
+            </li>
+            <!--
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="actions(1)">移動</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="actions(2)">攻擊</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="actions(3)">死亡</a>
+            </li>
+            -->
+        </ul>
+      </nav>
     <div class="container-fluid">
-        <nav id="navbar" class="navbar navbar-expand-md bg-dark navbar-dark text-white fixed-top">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a id="user" class="nav-link text-white">音效種類</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="actions(0)">登場</a>
-                </li>
-                <!--
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="actions(1)">移動</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="actions(2)">攻擊</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="actions(3)">死亡</a>
-                </li>
-                -->
-            </ul>
-          </nav>
-        <div id="cards"></div>
+        <div id="cards" class="flex-grow"></div>
     </div>
 
     <script language="JavaScript">
@@ -53,7 +53,7 @@
         let content = "";
         var action = 0;
         for (var i = 18; i < 117; i++) {
-            let str = '<img class="img-fluid" src="./img/ia_100000' + padding(i, 3) + '.png" alt="Chania" onclick="playSound(this)">';
+            let str = '<img class="img-responsive img-fluid" src="./img/ia_100000' + padding(i, 3) + '.jpg" alt="Chania" onclick="playSound(this)">';
             //console.log(str);
             content += str;
             //document.write(htmlEncode(str)+"<BR>");
