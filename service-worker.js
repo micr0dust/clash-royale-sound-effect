@@ -205,7 +205,7 @@ const filesToCache = [
     '/sounds/deploy/116.mp3'
 ];
 
-const cacheName = 'static';
+const cacheName = 'static2';
 
 self.addEventListener('activate', event => {
     console.log('now ready to handle fetches!');
@@ -234,7 +234,7 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
-    const dataUrl = 'https://wuilliam104286.github.io/SuperTNT_web_version/';
+    const dataUrl = 'https://wuilliam104286.github.io/clash-royale-sound-effect/';
     event.respondWith(
         caches.match(event.request).then(function (response) {
             return response || fetch(event.request).then(res =>
