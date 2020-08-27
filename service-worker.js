@@ -1,9 +1,5 @@
 const filesToCache = [
     './',
-    'https://code.jquery.com/jquery-3.3.1.slim.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js',
-    'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js',
-    'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css',
     './img/ia_100000018.jpg',
     './img/ia_100000019.jpg',
     './img/ia_100000020.jpg',
