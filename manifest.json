@@ -12,7 +12,7 @@
     "scope": ".",
     "display": "fullscreen",
     "orientation": "portrait-primary",
-    "background_color": "#CCCCFF",
+    "background_color": "#000000",
     "theme_color": "#000000",
     "description": "clash royale sounds",
     "dir": "ltr",
