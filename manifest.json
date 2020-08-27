@@ -1,0 +1,20 @@
+{
+    "name": "皇室音效",
+    "short_name": "皇室音效",
+    "icons": [
+        {
+            "src": "./img/RoyaleSounds.png",
+            "type": "image/png",
+            "sizes": "320x320"
+        }
+    ],
+    "start_url": "./index.html",
+    "scope": ".",
+    "display": "fullscreen",
+    "orientation": "portrait-primary",
+    "background_color": "#CCCCFF",
+    "theme_color": "#000000",
+    "description": "clash royale sounds",
+    "dir": "ltr",
+    "lang": "zh-Hant-TW"
+}
