@@ -15,20 +15,21 @@
     <link rel="manifest" href="manifest.json">
     <title>皇室戰爭-音效</title>
     <style>
-        .cards:hover {
-            -webkit-filter: brightness(150%);
-            transform: scale(1.9, 1.9);
+        body{
+            background-color: lightsteelblue;
         }
-
+        .battle:hover{
+            -webkit-filter: brightness(150%);
+            transform:scale(1.9,1.9);
+        }
         img:hover {
             -webkit-filter: brightness(150%);
             filter: brightness(120%);
-            transform: scale(1.1, 1.1);
+            transform:scale(1.1,1.1);
         }
-
-        .cards {
+        .battle{
             -webkit-filter: brightness(300%);
-            transform: scale(1.2, 1.2);
+            transform:scale(1.2,1.2);
         }
     </style>
 </head>
@@ -39,11 +40,6 @@
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="btn btn-primary" href="./setting.html">設定</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <button id="stop" class="btn btn-danger" onclick="randomPlay()">隨機播放</button>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
@@ -73,16 +69,16 @@
     </div>
 
     <script language="JavaScript">
-        let stop = true;
         let content = "";
         let click = 0;
         var action = 0;
-        for (var i = 18; i < 117; i++) {
-            let str = '<img class="img-responsive img-fluid" src="./img/ia_100000' + padding(i, 3) + '.jpg" alt="Chania" onclick="playSound(this)">';
+        for (var i = 13; i > 0; i--) {
+            let str = '<img class="img-responsive img-fluid" src="./img/arena' + i + '.png" alt="Chania" onclick="playSound(this)">';
             //console.log(str);
             content += str;
             //document.write(htmlEncode(str)+"<BR>");
         }
+        content += "<br><br><br><br>"
         $('#cards').html(content);
         function padding(num, length) {
             return (Array(length).join("0") + num).slice(-length);
@@ -90,38 +86,12 @@
         function htmlEncode(value) {
             return $('<div/>').text(value).html();
         }
-        function playSound(obj,auto) {
-            stop = false;
-            let card;
-            if(!auto) card = parseInt(obj.getAttribute("src").replace("./img/ia_100000", "").replace(".jpg", ""));
-            if(auto) card = obj;
+        function playSound(obj) {
+            let arena = parseInt(obj.getAttribute("src").replace("./img/arena", "").replace(".png", ""));
             //alert(card)
-            var myaudio = new Audio('./sounds/deploy/' + card + '.mp3');
-            if (JSON.parse(localStorage.getItem('loop'))) {
-                setInterval(() => {
-                    if (stop) return document.getElementById("stop").innerHTML = "隨機播放";
-                    myaudio.play();
-                }, 1000);
-                document.getElementById("stop").innerHTML = "停止";
-            } else {
-                myaudio.play();
-            }
-
+            var myaudio = new Audio('./sounds/arenas/arena' + arena + '.mp3');
+            myaudio.play();
             click++;
-        }
-        function randomPlay() {
-            if (stop) {
-                stop=false;
-                document.getElementById("stop").innerHTML = "停止";
-                setInterval(() => {
-                    if(stop) return;
-                    let cardnum = Math.floor(Math.random() * (116 - 18 + 1) + 18);
-                    playSound(cardnum,true);
-                }, 1000);
-            } else {
-                stop=true;
-                document.getElementById("stop").innerHTML = "隨機播放";
-            }
         }
         function actions(type) {
             action = type;
