@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous">//jquery</script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous">//bootstrap 4</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        //jquery
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous">
+        //bootstrap 4
+    </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="manifest" href="manifest.json">
@@ -20,13 +20,13 @@
             padding-left: 2.25rem;
             padding-bottom: 1rem;
         }
-
+        
         .custom-control-label {
             padding-top: 0.5rem;
             padding-left: 2rem;
             padding-bottom: 0.1rem;
         }
-
+        
         .custom-switch .custom-control-label::before {
             left: -2.25rem;
             height: 2rem;
@@ -34,7 +34,7 @@
             pointer-events: all;
             border-radius: 1rem;
         }
-
+        
         .custom-switch .custom-control-label::after {
             top: calc(0.25rem + 2px);
             left: calc(-2.25rem + 2px);
@@ -46,13 +46,13 @@
             transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
             transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
         }
-
+        
         @media (prefers-reduced-motion: reduce) {
             .custom-switch .custom-control-label::after {
                 transition: none;
             }
         }
-
+        
         .custom-switch .custom-control-input:checked~.custom-control-label::after {
             background-color: #fff;
             -webkit-transform: translateX(1.5rem);
@@ -126,20 +126,28 @@
     </div>
     <script language="JavaScript">
         var set;
+
         function save() {
             storage('loop', document.getElementById('switch1').checked);
         }
+
         function defaultSet() {
             storage('ufirstcome', true);
             storage('loop', false);
         }
+
         function storage(storg, value) {
             localStorage.setItem(storg, value);
         }
+
         function reloadForm() {
             document.getElementById('switch1').checked = JSON.parse(localStorage.getItem('loop'));
         }
-        if (!JSON.parse(localStorage.getItem('ufirstcome'))) { defaultSet() } else { reloadForm() }
+        if (!JSON.parse(localStorage.getItem('ufirstcome'))) {
+            defaultSet()
+        } else {
+            reloadForm()
+        }
     </script>
 </body>
 

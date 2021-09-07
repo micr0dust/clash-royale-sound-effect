@@ -5,31 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous">//jquery</script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous">//bootstrap 4</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        //jquery
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous">
+        //bootstrap 4
+    </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="manifest" href="manifest.json">
     <title>皇室戰爭-音效</title>
     <style>
-        body{
+        body {
             background-color: lightsteelblue;
         }
-        .battle:hover{
+        
+        .battle:hover {
             -webkit-filter: brightness(150%);
-            transform:scale(1.9,1.9);
+            transform: scale(1.9, 1.9);
         }
+        
         img:hover {
             -webkit-filter: brightness(150%);
             filter: brightness(120%);
-            transform:scale(1.1,1.1);
+            transform: scale(1.1, 1.1);
         }
-        .battle{
+        
+        .battle {
             -webkit-filter: brightness(300%);
-            transform:scale(1.2,1.2);
+            transform: scale(1.2, 1.2);
         }
     </style>
 </head>
@@ -44,8 +47,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <button id="install" class="btn btn-success" style="display:none;"
-                    onclick="openCreatePostModal()">安裝</button>
+                <button id="install" class="btn btn-success" style="display:none;" onclick="openCreatePostModal()">安裝</button>
             </li>
         </ul>
     </nav>
@@ -80,12 +82,15 @@
         }
         content += "<br><br><br><br>"
         $('#cards').html(content);
+
         function padding(num, length) {
             return (Array(length).join("0") + num).slice(-length);
         }
+
         function htmlEncode(value) {
             return $('<div/>').text(value).html();
         }
+
         function playSound(obj) {
             let arena = parseInt(obj.getAttribute("src").replace("./img/arena", "").replace(".png", ""));
             //alert(card)
@@ -93,13 +98,14 @@
             myaudio.play();
             click++;
         }
+
         function actions(type) {
             action = type;
         }
         serviceWorker();
 
         var deferredPrompt;
-        window.addEventListener('beforeinstallprompt', function (event) {
+        window.addEventListener('beforeinstallprompt', function(event) {
             console.log('安裝視窗跳出來前 阻止它!!');
             event.preventDefault();
             deferredPrompt = event;
@@ -110,7 +116,7 @@
         function openCreatePostModal() {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
-                deferredPrompt.userChoice.then(function (choiceResult) {
+                deferredPrompt.userChoice.then(function(choiceResult) {
                     console.log(choiceResult.outcome);
                     if (choiceResult.outcome == 'dismissed')
                         console.log('使用者取消安裝');
